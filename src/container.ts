@@ -62,7 +62,9 @@ function wrapChildren(element: HTMLElement) {
       wrapper[translationValue] = 0;
       draggables.push(wrapper);
     } else {
-      element.removeChild(child);
+      if (typeof element.removeChild === "function") {
+        element.removeChild(child);
+      }
     }
   });
   return draggables;
